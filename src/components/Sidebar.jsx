@@ -2,10 +2,10 @@ const Sidebar = ({ items, activeSection, open, onClose, onSelect }) => (
   <>
     <aside className={`sidebar ${open ? "open" : ""}`} id="sidebar">
       <div className="sidebar__brand">
-        <div className="sidebar__logo">SB</div>
+        <div className="sidebar__logo">VB</div>
         <div className="sidebar__meta">
-          <p>Study Buddy</p>
-          <small>Learning HQ</small>
+          <p>Vedam Study Buddy</p>
+          <small>Contest Analytics</small>
         </div>
         <button className="sidebar__collapse" type="button" onClick={onClose}>
           Hide

@@ -10,68 +10,88 @@ const navItems = [
 
 const sectionCopy = {
   dashboard: {
-    eyebrow: "Today",
-    heading: "Momentum Dashboard",
-    description: "A quick snapshot of how your study routine is trending right now.",
+    eyebrow: "Vedam Dashboard",
+    heading: "Contest Performance Overview",
+    description: "Track your progress in monthly Java and Maths contests, identify weak points, and get AI-powered study recommendations.",
   },
   subjects: {
-    eyebrow: "Focus areas",
-    heading: "Subjects Workspace",
-    description: "Organize topics, track mastery, and line up the next review block.",
+    eyebrow: "Contest Subjects",
+    heading: "Maths, Java & Web",
+    description: "Analyze your performance, review codes and solutions, and discover areas that need more practice.",
   },
   analytics: {
-    eyebrow: "Insights",
+    eyebrow: "Performance Insights",
     heading: "Analytics & Report",
-    description: "Compare effort vs. output and highlight where to intervene early.",
+    description: "Deep dive into contest results, weak point analysis, and personalized improvement recommendations.",
   },
   profile: {
-    eyebrow: "You",
-    heading: "Profile & Preferences",
-    description: "Fine-tune Study Buddy so it mirrors your goals and study rituals.",
+    eyebrow: "Student Profile",
+    heading: "Profile & Settings",
+    description: "Manage your Vedam student profile and customize your study preferences.",
   },
 };
 
 const dashboardCards = [
   {
-    title: "Focus Score",
-    value: "87%",
-    helper: "Up 5% vs last week",
+    title: "Contest Score",
+    value: "78%",
+    helper: "Last month: Java Contest",
   },
   {
-    title: "Deep Work Sessions",
-    value: "3 / 4",
-    helper: "Keep one more to hit streak",
+    title: "Weak Areas",
+    value: "3 topics",
+    helper: "Needs attention",
   },
   {
-    title: "Study Streak",
-    value: "9 days",
-    helper: "New record in sight",
+    title: "Practice Streak",
+    value: "12 days",
+    helper: "Keep it up!",
   },
   {
-    title: "Upcoming Tasks",
-    value: "6 items",
-    helper: "2 due in the next 24h",
+    title: "Helpful Questions",
+    value: "8 ready",
+    helper: "AI-generated for you",
   },
 ];
 
 const subjectsData = [
-  { name: "Calculus II", mentor: "Dr. Nolan", progress: 72, nextFocus: "Integration techniques" },
-  { name: "Organic Chemistry", mentor: "Lab Mentor", progress: 55, nextFocus: "Spectroscopy drills" },
-  { name: "Modern History", mentor: "Prof. Mehta", progress: 80, nextFocus: "Cold War essay" },
-  { name: "Product Design", mentor: "Studio Coach", progress: 41, nextFocus: "Prototype critique" },
+  { 
+    name: "Maths", 
+    mentor: "Contest Analysis", 
+    progress: 75, 
+    nextFocus: "Linear Algebra",
+    weakPoints: ["Matrix Operations", "Differential Equations"],
+    helpfulQuestions: 5
+  },
+  { 
+    name: "Java", 
+    mentor: "Code Review", 
+    progress: 68, 
+    nextFocus: "Data Structures",
+    weakPoints: ["Recursion", "Dynamic Programming"],
+    helpfulQuestions: 8
+  },
+  { 
+    name: "Web", 
+    mentor: "Project Feedback", 
+    progress: 82, 
+    nextFocus: "React Hooks",
+    weakPoints: ["State Management"],
+    helpfulQuestions: 3
+  },
 ];
 
 const analyticsStats = [
-  { label: "Avg. Session Length", value: "52 min", trendLabel: "+7 min" },
-  { label: "Assignments Cleared", value: "14", trendLabel: "3 pending" },
-  { label: "Energy Check-ins", value: "8/10", trendLabel: "Consistent" },
+  { label: "Contests Completed", value: "4", trendLabel: "This month" },
+  { label: "Code Submissions", value: "23", trendLabel: "Reviewed by AI" },
+  { label: "Improvement Rate", value: "15%", trendLabel: "Up from last month" },
 ];
 
 const profilePreferences = [
-  { label: "Preferred block", value: "07:00 — 09:30" },
-  { label: "Reminder cadence", value: "Every 45 min" },
-  { label: "Break style", value: "Walk & hydrate" },
-  { label: "Weekly target", value: "18 focused hours" },
+  { label: "Vedam ID", value: "VED-2024-001" },
+  { label: "Contest Participation", value: "Monthly" },
+  { label: "Primary Focus", value: "Java & Maths" },
+  { label: "AI Analysis", value: "Enabled" },
 ];
 
 const App = () => {
@@ -102,11 +122,11 @@ const App = () => {
       <section className="panel">
         <div className="panel__header">
           <div>
-            <p className="eyebrow">Momentum snapshot</p>
-            <h2>Main indicators</h2>
+            <p className="eyebrow">Contest Performance</p>
+            <h2>Key Metrics</h2>
           </div>
           <button className="ghost-btn" type="button">
-            Export summary
+            Export Report
           </button>
         </div>
         <div className="card-grid">
@@ -122,50 +142,51 @@ const App = () => {
 
       <section className="panel two-column">
         <div>
-          <h3>Focus runway</h3>
+          <h3>Weak Points Identified</h3>
           <p className="panel__description">
-            Block at least one more deep-work sprint to lock in your streak.
+            AI analysis of your contest codes and solutions has highlighted these areas for improvement.
           </p>
           <ul className="timeline">
             <li>
-              <span>07:00</span>
+              <span>Java</span>
               <div>
-                Morning review
-                <p>Light spaced repetition (completed)</p>
+                Recursion Patterns
+                <p>Struggled with recursive solutions in last contest</p>
               </div>
             </li>
             <li>
-              <span>11:30</span>
+              <span>Maths</span>
               <div>
-                Calculus lab
-                <p>Practice set 5 pending feedback</p>
+                Matrix Operations
+                <p>Multiple errors in matrix multiplication problems</p>
               </div>
             </li>
             <li>
-              <span>15:00</span>
+              <span>Web</span>
               <div>
-                Writing block
-                <p>Draft history essay intro</p>
+                State Management
+                <p>Need better understanding of React state flow</p>
               </div>
             </li>
           </ul>
         </div>
         <div>
-          <h3>Energy & mood</h3>
-          <p className="panel__description">Keep hydration reminders on and stretch at 14:00.</p>
+          <h3>Helpful Questions</h3>
+          <p className="panel__description">AI-generated practice questions tailored to your weak points.</p>
           <div className="energy-widget">
             <div className="energy-widget__score">
-              <span>Current</span>
-              <strong>8 / 10</strong>
+              <span>Available</span>
+              <strong>16 questions</strong>
             </div>
             <div className="energy-widget__bars">
-              {[7, 8, 9, 6, 7].map((score, idx) => (
+              {[5, 8, 6, 7, 4].map((score, idx) => (
                 <span key={idx} style={{ height: `${score * 8}px` }} />
               ))}
             </div>
             <div className="energy-widget__summary">
-              <p>Most steady on Tue/Thu</p>
-              <p>Plan lighter load on Friday</p>
+              <p>5 questions on Recursion (Java)</p>
+              <p>8 questions on Matrix Ops (Maths)</p>
+              <p>3 questions on State (Web)</p>
             </div>
           </div>
         </div>
@@ -177,11 +198,11 @@ const App = () => {
     <section className="panel">
       <div className="panel__header">
         <div>
-          <p className="eyebrow">Active tracks</p>
-          <h2>Subjects & rituals</h2>
+          <p className="eyebrow">Contest Subjects</p>
+          <h2>Maths, Java & Web</h2>
         </div>
         <button className="ghost-btn" type="button">
-          Add subject
+          Upload Contest Code
         </button>
       </div>
       <div className="subject-grid">
@@ -189,18 +210,35 @@ const App = () => {
           <article key={subject.name} className="subject-card">
             <header>
               <h3>{subject.name}</h3>
-              <p>Mentor: {subject.mentor}</p>
+              <p>{subject.mentor}</p>
             </header>
             <div className="progress-track">
               <div style={{ width: `${subject.progress}%` }} />
             </div>
             <div className="subject-card__footer">
-              <span>{subject.progress}% mastered</span>
-              <button type="button">Go to board</button>
+              <span>{subject.progress}% performance</span>
+              <button type="button">View Analysis</button>
             </div>
             <p className="subject-card__next">
-              Next up: <strong>{subject.nextFocus}</strong>
+              Next focus: <strong>{subject.nextFocus}</strong>
             </p>
+            {subject.weakPoints && subject.weakPoints.length > 0 && (
+              <div style={{ marginTop: "0.8rem", paddingTop: "0.8rem", borderTop: "1px solid rgba(15, 26, 47, 0.08)" }}>
+                <p style={{ fontSize: "0.85rem", color: "#7a7f9f", marginBottom: "0.4rem" }}>Weak Points:</p>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
+                  {subject.weakPoints.map((point, idx) => (
+                    <span key={idx} className="chip" style={{ fontSize: "0.75rem", padding: "0.25rem 0.6rem" }}>
+                      {point}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+            {subject.helpfulQuestions && (
+              <div style={{ marginTop: "0.6rem", fontSize: "0.85rem", color: "#4f46e5" }}>
+                <strong>{subject.helpfulQuestions}</strong> helpful questions ready
+              </div>
+            )}
           </article>
         ))}
       </div>
@@ -212,8 +250,8 @@ const App = () => {
       <section className="panel">
         <div className="panel__header">
           <div>
-            <p className="eyebrow">Signals</p>
-            <h2>Analytics pulse</h2>
+            <p className="eyebrow">Performance Metrics</p>
+            <h2>Contest Analytics</h2>
           </div>
           <button className="ghost-btn" type="button">
             Generate PDF
@@ -231,45 +269,49 @@ const App = () => {
       </section>
       <section className="panel two-column">
         <div>
-          <h3>Study intensity</h3>
+          <h3>Contest Performance Trend</h3>
           <p className="panel__description">
-            Track where most of your focused minutes land each weekday.
+            Track your monthly contest scores across Maths, Java, and Web subjects.
           </p>
           <div className="heat-chart">
-            {["Mon", "Tue", "Wed", "Thu", "Fri"].map((day, dayIndex) => (
-              <div key={day} className="heat-chart__row">
-                <span>{day}</span>
-                {[60, 45, 50, 70, 30].map((block, blockIndex) => (
-                  <i key={`${day}-${blockIndex}`} style={{ opacity: (dayIndex + blockIndex + 1) / 6 }} />
+            {[
+              { name: "Maths", scores: [72, 75, 78, 73, 76] },
+              { name: "Java", scores: [65, 68, 70, 67, 69] },
+              { name: "Web", scores: [80, 82, 85, 81, 83] }
+            ].map((subject) => (
+              <div key={subject.name} className="heat-chart__row">
+                <span>{subject.name}</span>
+                {subject.scores.map((score, blockIndex) => (
+                  <i key={`${subject.name}-${blockIndex}`} style={{ opacity: score / 100, height: `${score / 5}px` }} />
                 ))}
               </div>
             ))}
           </div>
         </div>
         <div>
-          <h3>Reports</h3>
-          <p className="panel__description">Weekly export scheduled for Friday 17:00.</p>
+          <h3>AI Analysis Reports</h3>
+          <p className="panel__description">Generated reports from your contest code analysis.</p>
           <ul className="report-list">
             <li>
               <div>
-                <p>Advisor handoff</p>
-                <small>Sent 2 days ago</small>
+                <p>Java Contest Analysis</p>
+                <small>Generated 2 days ago</small>
               </div>
               <button type="button">View</button>
             </li>
             <li>
               <div>
-                <p>Parent summary</p>
-                <small>Draft ready</small>
+                <p>Maths Weak Points Report</p>
+                <small>Ready for review</small>
               </div>
               <button type="button">Share</button>
             </li>
             <li>
               <div>
-                <p>Personal retro</p>
-                <small>Schedule before Sunday</small>
+                <p>Web Project Feedback</p>
+                <small>AI review completed</small>
               </div>
-              <button type="button">Plan</button>
+              <button type="button">Download</button>
             </li>
           </ul>
         </div>
@@ -281,8 +323,8 @@ const App = () => {
     <section className="panel">
       <div className="panel__header">
         <div>
-          <p className="eyebrow">Your blueprint</p>
-          <h2>Profile preferences</h2>
+          <p className="eyebrow">Student Profile</p>
+          <h2>Vedam Student Settings</h2>
         </div>
         <button className="ghost-btn" type="button">
           Edit profile
@@ -293,9 +335,9 @@ const App = () => {
           <div className="avatar">SJ</div>
           <div>
             <h3>Sidhant Joshi</h3>
-            <p>Senior year · Science & Design track</p>
+            <p>Vedam Student · Contest Participant</p>
           </div>
-          <span className="chip chip--pulse">Streak: 9 days</span>
+          <span className="chip chip--pulse">Streak: 12 days</span>
         </div>
         <div className="profile-card__grid">
           {profilePreferences.map((pref) => (
@@ -307,8 +349,8 @@ const App = () => {
         </div>
         <div className="profile-card__footer">
           <div>
-            <p className="stat-card__label">Accountability partners</p>
-            <p className="stat-card__helper">Evelyn (mentor) · Noel (study buddy)</p>
+            <p className="stat-card__label">Contest Notifications</p>
+            <p className="stat-card__helper">Monthly Java & Maths contests · AI analysis alerts</p>
           </div>
           <button type="button">Manage</button>
         </div>
